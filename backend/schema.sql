@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS subscribers (
+  id SERIAL PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  subscribed_at TIMESTAMP DEFAULT NOW()
+);
