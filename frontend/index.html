@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stop Doomscrolling | Join the Movement</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .counter-pulse {
+      animation: pulse 0.5s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white antialiased">
+  <div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8 text-center">
+    <div class="max-w-2xl w-full">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+        Tired of <span class="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Doomscrolling?</span>
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+        You're not alone. Join the movement to reclaim your time and focus. Click the button to show your interest.
+      </p>
+
+      <!-- (Opcional) Contador -->
+      <div class="my-10 md:my-12">
+        <p class="text-base text-gray-400 mb-2">People ready for a change</p>
+        <div id="interest-counter" class="text-7xl md:text-9xl font-extrabold text-white transition-all duration-300">
+          123
+        </div>
+      </div>
+
+      <!-- Email Subscription Section -->
+      <div class="mt-16 md:mt-20 border-t border-gray-700 pt-8">
+        <h2 class="text-xl font-bold text-white">Be the first to know.</h2>
+        <p class="text-gray-400 mt-2 mb-6">We're building a solution. Subscribe for launch updates.</p>
+        
+        <form id="subscribe-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" id="email-input" placeholder="Enter your email" required
+            class="flex-grow w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white placeholder-gray-500"/>
+          <button type="submit" id="subscribe-button"
+            class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+            Subscribe
+          </button>
+        </form>
+        <p id="message-area" class="mt-4 h-6 text-green-400"></p>
+      </div>
+
+      <footer class="mt-16 text-gray-500 text-sm">
+        <p>An EIA Project</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('subscribe-form');
+    const emailInput = document.getElementById('email-input');
+    const subscribeButton = document.getElementById('subscribe-button');
+    const messageArea = document.getElementById('message-area');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = emailInput.value.trim();
+      if (!email) return;
+
+      subscribeButton.disabled = true;
+      subscribeButton.textContent = 'Subscribing...';
+      messageArea.textContent = '';
+
+      try {
+        const res = await fetch('https://doomscrolling-backend.onrender.com/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+          messageArea.textContent = result.message || "You're on the list!";
+          messageArea.classList.add("text-green-400");
+          messageArea.classList.remove("text-red-400");
+          emailInput.value = '';
+        } else {
+          messageArea.textContent = result.message || 'There was an error.';
+          messageArea.classList.add("text-red-400");
+          messageArea.classList.remove("text-green-400");
+        }
+      } catch (err) {
+        console.error(err);
+        messageArea.textContent = "Network error. Try again.";
+        messageArea.classList.add("text-red-400");
+        messageArea.classList.remove("text-green-400");
+      } finally {
+        subscribeButton.disabled = false;
+        subscribeButton.textContent = 'Subscribe';
+      }
+    });
+  </script>
+</body>
+</html>
