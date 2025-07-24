@@ -42,9 +42,20 @@
       <!-- (Opcional) Contador -->
       <div class="my-10 md:my-12">
         <p class="text-base text-gray-400 mb-2">People ready for a change</p>
-        <div id="interest-counter" class="text-7xl md:text-9xl font-extrabold text-white transition-all duration-300">
-          123
-        </div>
+        <script>
+        // Al cargar la página, obtener el número de suscriptores reales
+        window.addEventListener('DOMContentLoaded', async () => {
+            const counterEl = document.getElementById('interest-counter');
+            try {
+            const res = await fetch('https://dope-landing-page.onrender.com/count');
+            const data = await res.json();
+            counterEl.textContent = data.count;
+            } catch (err) {
+            console.error("Error cargando contador:", err);
+            counterEl.textContent = "??";
+            }
+        });
+        </script>
       </div>
 
       <!-- Email Subscription Section -->
@@ -99,6 +110,15 @@
           messageArea.classList.add("text-green-400");
           messageArea.classList.remove("text-red-400");
           emailInput.value = '';
+          // Actualizar contador tras suscripción exitosa
+        const counterEl = document.getElementById('interest-counter');
+        try {
+        const countRes = await fetch('https://dope-landing-page.onrender.com/count');
+        const countData = await countRes.json();
+        counterEl.textContent = countData.count;
+        } catch (e) {
+        console.warn('No se pudo actualizar el contador:', e);
+        }
         } else {
           messageArea.textContent = result.message || 'There was an error.';
           messageArea.classList.add("text-red-400");
