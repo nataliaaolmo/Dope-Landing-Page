@@ -27,25 +27,35 @@ app.get('/count', async (req, res) => {
   }
 });
 
-// POST /subscribe – guardar correo
+// POST /subscribe – guardar suscripción
 app.post('/subscribe', async (req, res) => {
-  const { email } = req.body;
+  const { name, email, phone, interests } = req.body;
 
-  if (!email || !/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+  // Validaciones
+  if (!name || !email) {
+    return res.status(400).json({ message: 'Nombre y email son requeridos' });
+  }
+
+  if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email)) {
     return res.status(400).json({ message: 'Email inválido' });
+  }
+
+  // Validar formato de teléfono si se proporciona
+  if (phone && !/^[\+]?[1-9][\d]{0,15}$/.test(phone.replace(/\s/g, ''))) {
+    return res.status(400).json({ message: 'Formato de teléfono inválido' });
   }
 
   try {
     await pool.query(
-      'INSERT INTO subscribers (email, subscribed_at) VALUES ($1, NOW())',
-      [email]
+      'INSERT INTO subscribers (name, email, phone_number, interests, subscribed_at) VALUES ($1, $2, $3, $4, NOW())',
+      [name, email, phone || null, interests || null]
     );
-    res.status(200).json({ message: 'Email registrado con éxito' });
+    res.status(200).json({ message: 'Suscripción registrada con éxito' });
   } catch (error) {
     if (error.code === '23505') {
       return res.status(409).json({ message: 'Este email ya está registrado.' });
     }
-    console.error('Error al insertar email:', error);
+    console.error('Error al insertar suscripción:', error);
     res.status(500).json({ message: 'Error interno del servidor' });
   }
 });

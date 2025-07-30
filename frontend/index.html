@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stop Doomscrolling | Join the Movement</title>
+  <title>Dope | Connect with Agents to Maintain Difficult Habits</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -23,46 +23,105 @@
 <body class="bg-gray-900 text-white antialiased">
   <div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8 text-center">
     <div class="max-w-2xl w-full">
+      <!-- Logo/Nombre de la app -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-black text-white">
+          <span class="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">DOPE</span>
+        </h2>
+        <p class="text-sm text-gray-400 mt-1">Your companion for incredible habits</p>
+      </div>
+
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-        Tired of <span class="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Doomscrolling?</span>
+        Connect with <span class="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">Agents</span> to Maintain Habits
       </h1>
       <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
-        You're not alone. Join the movement to reclaim your time and focus. Click the button to show your interest.
+        Struggling to maintain difficult habits? Dope connects you with specialized agents who will help you stay consistent and reach your goals.
       </p>
 
       <!-- Contador -->
       <div class="my-10 md:my-12">
-        <p class="text-base text-gray-400 mb-2">People ready for a change</p>
+        <p class="text-base text-gray-400 mb-2">People connecting with agents on Dope</p>
         <div id="interest-counter" class="text-7xl md:text-9xl font-extrabold text-white transition-all duration-300">
           0
         </div>
       </div>
 
-      <!-- Formulario de email -->
+      <!-- Formulario de suscripción -->
       <div class="mt-16 md:mt-20 border-t border-gray-700 pt-8">
-        <h2 class="text-xl font-bold text-white">Be the first to know.</h2>
-        <p class="text-gray-400 mt-2 mb-6">We're building a solution. Subscribe for launch updates.</p>
+        <h2 class="text-xl font-bold text-white">Join the Dope community.</h2>
+        <p class="text-gray-400 mt-2 mb-6">Be the first to know when we launch Dope, our agent connection platform.</p>
         
-        <form id="subscribe-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input type="email" id="email-input" placeholder="Enter your email" required
-            class="flex-grow w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white placeholder-gray-500"/>
+        <form id="subscribe-form" class="max-w-md mx-auto space-y-4">
+          <!-- Nombre -->
+          <input type="text" id="name-input" placeholder="Your full name" required
+            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white placeholder-gray-500"/>
+          
+          <!-- Email -->
+          <input type="email" id="email-input" placeholder="Your email" required
+            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white placeholder-gray-500"/>
+          
+          <!-- Teléfono -->
+          <input type="tel" id="phone-input" placeholder="Your phone number (optional)"
+            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white placeholder-gray-500"/>
+          
+          <!-- Intereses -->
+          <div class="text-left">
+            <label class="block text-sm font-medium text-gray-300 mb-2">What habits would you like to develop? (you can select multiple)</label>
+            <div class="space-y-2">
+              <label class="flex items-center">
+                <input type="checkbox" value="fitness" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Exercise and fitness</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="nutrition" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Nutrition and healthy eating</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="productivity" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Productivity and organization</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="learning" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Learning and studying</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="mindfulness" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Mindfulness and meditation</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="sleep" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Sleep and rest</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="finance" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Personal finance</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" value="creativity" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
+                <span class="text-sm text-gray-300">Creativity and hobbies</span>
+              </label>
+            </div>
+          </div>
+          
           <button type="submit" id="subscribe-button"
-            class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-            Subscribe
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
+            Join Dope
           </button>
         </form>
         <p id="message-area" class="mt-4 h-6 text-green-400"></p>
       </div>
 
       <footer class="mt-16 text-gray-500 text-sm">
-        <p>An EIA Project</p>
+        <p>Dope - An EIA Project</p>
       </footer>
     </div>
   </div>
 
   <script>
     const form = document.getElementById('subscribe-form');
+    const nameInput = document.getElementById('name-input');
     const emailInput = document.getElementById('email-input');
+    const phoneInput = document.getElementById('phone-input');
     const subscribeButton = document.getElementById('subscribe-button');
     const messageArea = document.getElementById('message-area');
     const counterEl = document.getElementById('interest-counter');
@@ -74,7 +133,7 @@
         const data = await res.json();
         counterEl.textContent = data.count;
       } catch (err) {
-        console.error("Error cargando contador:", err);
+        console.error("Error loading counter:", err);
         counterEl.textContent = "0";
       }
     }
@@ -85,41 +144,64 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const name = nameInput.value.trim();
       const email = emailInput.value.trim();
-      if (!email) return;
+      const phone = phoneInput.value.trim();
+      
+      // Obtener intereses seleccionados
+      const interestCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      const interests = Array.from(interestCheckboxes).map(cb => cb.value);
+
+      if (!name || !email) {
+        messageArea.textContent = 'Please complete at least your name and email.';
+        messageArea.classList.add("text-red-400");
+        messageArea.classList.remove("text-green-400");
+        return;
+      }
 
       subscribeButton.disabled = true;
-      subscribeButton.textContent = 'Subscribing...';
+      subscribeButton.textContent = 'Connecting...';
       messageArea.textContent = '';
 
       try {
         const res = await fetch('https://dope-landing-page.onrender.com/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
+          body: JSON.stringify({ 
+            name, 
+            email, 
+            phone: phone || null, 
+            interests: interests.length > 0 ? interests : null 
+          })
         });
 
         const result = await res.json();
 
         if (res.ok) {
-          messageArea.textContent = result.message || "You're on the list!";
+          messageArea.textContent = result.message || "Successfully connected to Dope! You'll soon receive news about our agents.";
           messageArea.classList.add("text-green-400");
           messageArea.classList.remove("text-red-400");
+          
+          // Limpiar formulario
+          nameInput.value = '';
           emailInput.value = '';
+          phoneInput.value = '';
+          interestCheckboxes.forEach(cb => cb.checked = false);
+          
           await loadCount(); // actualizar contador
         } else {
-          messageArea.textContent = result.message || 'There was an error.';
+          messageArea.textContent = result.message || 'There was an error connecting to Dope.';
           messageArea.classList.add("text-red-400");
           messageArea.classList.remove("text-green-400");
         }
       } catch (err) {
         console.error(err);
-        messageArea.textContent = "Network error. Try again.";
+        messageArea.textContent = "Connection error. Please try again.";
         messageArea.classList.add("text-red-400");
         messageArea.classList.remove("text-green-400");
       } finally {
         subscribeButton.disabled = false;
-        subscribeButton.textContent = 'Subscribe';
+        subscribeButton.textContent = 'Join Dope';
       }
     });
   </script>
