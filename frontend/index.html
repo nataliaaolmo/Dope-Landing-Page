@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dope | Connect with Agents to Maintain Difficult Habits</title>
+  <title>VOW | Connect with People to Maintain Difficult Habits</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -17,102 +17,108 @@
     .counter-pulse {
       animation: pulse 0.5s ease-in-out;
     }
+    .custom-gradient {
+      background: linear-gradient(135deg, #4F81F7 0%, #00F4CC 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   </style>
 </head>
 
-<body class="bg-gray-900 text-white antialiased">
+<body class="bg-white text-black antialiased">
   <div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8 text-center">
     <div class="max-w-2xl w-full">
       <!-- Logo/Nombre de la app -->
       <div class="mb-8">
-        <h2 class="text-2xl font-black text-white">
-          <span class="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">DOPE</span>
+        <h2 class="text-2xl font-black text-black">
+          <span class="custom-gradient">VOW</span>
         </h2>
-        <p class="text-sm text-gray-400 mt-1">Your companion for incredible habits</p>
+        <p class="text-sm text-gray-600 mt-1">Your companion for incredible habits</p>
       </div>
 
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
-        Connect with <span class="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">Agents</span> to Maintain Habits
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-black leading-tight">
+        Connect with <span class="custom-gradient">People</span> to Maintain Habits
       </h1>
-      <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
-        Struggling to maintain difficult habits? Dope connects you with specialized agents who will help you stay consistent and reach your goals.
+      <p class="mt-4 text-lg md:text-xl text-gray-700 max-w-xl mx-auto">
+        Struggling to maintain difficult habits? VOW connects you with people in the same university who will help you stay consistent and reach your goals.
       </p>
 
       <!-- Contador -->
       <div class="my-10 md:my-12">
-        <p class="text-base text-gray-400 mb-2">People connecting with agents on Dope</p>
-        <div id="interest-counter" class="text-7xl md:text-9xl font-extrabold text-white transition-all duration-300">
+        <p class="text-base text-gray-600 mb-2">People connecting interested in VOW</p>
+        <div id="interest-counter" class="text-7xl md:text-9xl font-extrabold custom-gradient transition-all duration-300">
           0
         </div>
       </div>
 
       <!-- Formulario de suscripción -->
-      <div class="mt-16 md:mt-20 border-t border-gray-700 pt-8">
-        <h2 class="text-xl font-bold text-white">Join the Dope community.</h2>
-        <p class="text-gray-400 mt-2 mb-6">Be the first to know when we launch Dope, our agent connection platform.</p>
+      <div class="mt-16 md:mt-20 border-t border-gray-300 pt-8">
+        <h2 class="text-xl font-bold text-black">Join the VOW community.</h2>
+        <p class="text-gray-600 mt-2 mb-6">Be the first to know when we launch VOW.</p>
         
         <form id="subscribe-form" class="max-w-md mx-auto space-y-4">
           <!-- Nombre -->
           <input type="text" id="name-input" placeholder="Your full name" required
-            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white placeholder-gray-500"/>
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black placeholder-gray-500"/>
           
           <!-- Email -->
           <input type="email" id="email-input" placeholder="Your email" required
-            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white placeholder-gray-500"/>
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black placeholder-gray-500"/>
           
           <!-- Teléfono -->
           <input type="tel" id="phone-input" placeholder="Your phone number (optional)"
-            class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white placeholder-gray-500"/>
+            class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black placeholder-gray-500"/>
           
           <!-- Intereses -->
           <div class="text-left">
-            <label class="block text-sm font-medium text-gray-300 mb-2">What habits would you like to develop? (you can select multiple)</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2">What habits would you like to develop? (you can select multiple)</label>
             <div class="space-y-2">
               <label class="flex items-center">
-                <input type="checkbox" value="fitness" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Exercise and fitness</span>
+                <input type="checkbox" value="fitness" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Exercise and fitness</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="nutrition" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Nutrition and healthy eating</span>
+                <input type="checkbox" value="nutrition" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Nutrition and healthy eating</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="productivity" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Productivity and organization</span>
+                <input type="checkbox" value="productivity" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Productivity and organization</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="learning" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Learning and studying</span>
+                <input type="checkbox" value="learning" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Learning and studying</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="mindfulness" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Mindfulness and meditation</span>
+                <input type="checkbox" value="mindfulness" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Mindfulness and meditation</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="sleep" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Sleep and rest</span>
+                <input type="checkbox" value="sleep" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Sleep and rest</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="finance" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Personal finance</span>
+                <input type="checkbox" value="finance" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Personal finance</span>
               </label>
               <label class="flex items-center">
-                <input type="checkbox" value="creativity" class="mr-2 rounded border-gray-600 bg-gray-800 text-green-500 focus:ring-green-500">
-                <span class="text-sm text-gray-300">Creativity and hobbies</span>
+                <input type="checkbox" value="creativity" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
+                <span class="text-sm text-gray-700">Creativity and hobbies</span>
               </label>
             </div>
           </div>
           
           <button type="submit" id="subscribe-button"
-            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-            Join Dope
+            class="w-full bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+            Join VOW
           </button>
         </form>
-        <p id="message-area" class="mt-4 h-6 text-green-400"></p>
+        <p id="message-area" class="mt-4 h-6 text-green-600"></p>
       </div>
 
       <footer class="mt-16 text-gray-500 text-sm">
-        <p>Dope - An EIA Project</p>
+        <p>VOW - An EIA Project</p>
       </footer>
     </div>
   </div>
@@ -154,8 +160,8 @@
 
       if (!name || !email) {
         messageArea.textContent = 'Please complete at least your name and email.';
-        messageArea.classList.add("text-red-400");
-        messageArea.classList.remove("text-green-400");
+        messageArea.classList.add("text-red-600");
+        messageArea.classList.remove("text-green-600");
         return;
       }
 
@@ -178,9 +184,9 @@
         const result = await res.json();
 
         if (res.ok) {
-          messageArea.textContent = result.message || "Successfully connected to Dope! You'll soon receive news about our agents.";
-          messageArea.classList.add("text-green-400");
-          messageArea.classList.remove("text-red-400");
+          messageArea.textContent = result.message || "Successfully connected to VOW! You'll soon receive news about it.";
+          messageArea.classList.add("text-green-600");
+          messageArea.classList.remove("text-red-600");
           
           // Limpiar formulario
           nameInput.value = '';
@@ -190,18 +196,18 @@
           
           await loadCount(); // actualizar contador
         } else {
-          messageArea.textContent = result.message || 'There was an error connecting to Dope.';
-          messageArea.classList.add("text-red-400");
-          messageArea.classList.remove("text-green-400");
+          messageArea.textContent = result.message || 'There was an error connecting to VOW.';
+          messageArea.classList.add("text-red-600");
+          messageArea.classList.remove("text-green-600");
         }
       } catch (err) {
         console.error(err);
         messageArea.textContent = "Connection error. Please try again.";
-        messageArea.classList.add("text-red-400");
-        messageArea.classList.remove("text-green-400");
+        messageArea.classList.add("text-red-600");
+        messageArea.classList.remove("text-green-600");
       } finally {
         subscribeButton.disabled = false;
-        subscribeButton.textContent = 'Join Dope';
+        subscribeButton.textContent = 'Join VOW';
       }
     });
   </script>
