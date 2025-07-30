@@ -148,7 +148,7 @@
           
           <!-- Intereses -->
           <div class="text-left">
-            <label class="block text-sm font-medium text-gray-700 mb-2">What habits would you like to develop? (you can select multiple)</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2">What area does your goals relate to? (you can select multiple)</label>
             <div class="space-y-2">
               <label class="flex items-center">
                 <input type="checkbox" value="fitness" class="mr-2 rounded border-gray-300 bg-gray-50 text-blue-500 focus:ring-blue-500">
@@ -183,6 +183,17 @@
                 <span class="text-sm text-gray-700">Creativity and hobbies</span>
               </label>
             </div>
+          </div>
+          
+          <!-- Metas -->
+          <div class="text-left">
+            <label for="goals-input" class="block text-sm font-medium text-gray-700 mb-2">What are your goals?</label>
+            <textarea 
+              id="goals-input" 
+              placeholder="Tell us more about your specific goals and what you want to achieve. For example: 'I want to exercise 3 times a week', 'I want to read 20 minutes daily', etc."
+              rows="4"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black placeholder-gray-500 resize-none"
+            ></textarea>
           </div>
           
           <button type="submit" id="subscribe-button"
@@ -234,6 +245,9 @@
       const interestCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
       const interests = Array.from(interestCheckboxes).map(cb => cb.value);
 
+      // Obtener metas
+      const goalsInput = document.getElementById('goals-input').value.trim();
+
       if (!name || !email) {
         messageArea.textContent = 'Please complete at least your name and email.';
         messageArea.classList.add("text-red-600");
@@ -253,7 +267,8 @@
             name, 
             email, 
             phone: phone || null, 
-            interests: interests.length > 0 ? interests : null 
+            interests: interests.length > 0 ? interests : null,
+            goals: goalsInput || null
           })
         });
 
@@ -269,6 +284,7 @@
           emailInput.value = '';
           phoneInput.value = '';
           interestCheckboxes.forEach(cb => cb.checked = false);
+          document.getElementById('goals-input').value = ''; // Limpiar metas
           
           await loadCount(); // actualizar contador
         } else {

@@ -29,7 +29,7 @@ app.get('/count', async (req, res) => {
 
 // POST /subscribe – guardar suscripción
 app.post('/subscribe', async (req, res) => {
-  const { name, email, phone, interests } = req.body;
+  const { name, email, phone, interests, goals } = req.body;
 
   // Validaciones
   if (!name || !email) {
@@ -47,8 +47,8 @@ app.post('/subscribe', async (req, res) => {
 
   try {
     await pool.query(
-      'INSERT INTO subscribers (name, email, phone_number, interests, subscribed_at) VALUES ($1, $2, $3, $4, NOW())',
-      [name, email, phone || null, interests || null]
+      'INSERT INTO subscribers (name, email, phone_number, interests, goals, subscribed_at) VALUES ($1, $2, $3, $4, $5, NOW())',
+      [name, email, phone || null, interests || null, goals || null]
     );
     res.status(200).json({ message: 'Suscripción registrada con éxito' });
   } catch (error) {
