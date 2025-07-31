@@ -248,6 +248,12 @@
       // Obtener metas
       const goalsInput = document.getElementById('goals-input').value.trim();
 
+      console.log(interests);
+      console.log(goalsInput);
+      console.log(name);
+      console.log(email);
+      console.log(phone);
+
       if (!name || !email) {
         messageArea.textContent = 'Please complete at least your name and email.';
         messageArea.classList.add("text-red-600");
